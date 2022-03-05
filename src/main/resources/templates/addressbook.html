@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dani Hashweh 101064965 - Address Book</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/}" th:object="${newBuddy}" method="post">
+    Name:
+    <input type="text" th:field="*{name}"> <br>
+    Phone Number:
+    <input type="text" th:field="*{phoneNumber}"> <br>
+    <button
+            type="submit">
+        Add a new buddy
+    </button>
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+    </tr>
+    <p th:text="${addressbook.buddies}"></p>
+    <tr th:each="buddy : ${addressbook.buddies}">
+        <td th:text="${buddy.name}"></td>
+        <td th:text="${buddy.phoneNumber}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
